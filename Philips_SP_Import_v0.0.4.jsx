@@ -1,9 +1,8 @@
 
 
 var mijnConsoleWaarde = "";
-var progressWaarde = "";
 var waarde = "";
-var testen = "testen";
+var progress;
 
 
 function mijnUserInterface() {
@@ -42,10 +41,9 @@ function myScript(thisObj){
         mijnUserInterfaceFuncties(myPanel);
 
         // progressbar
-        //progress = myPanel.grp.myImportPanel.myProgressBar;
-        //progress.value = 25;
-        myPanel.grp.myImportPanel.myProgressBar.value = 90;
-
+        progress = myPanel.grp.myImportPanel.myProgressBar;
+        //progress.value = progressWaarde;
+        progress.value = 0;
 
         // panel sizing
         myPanel.layout.layout(true);
@@ -67,6 +65,7 @@ function myScript(thisObj){
     if((myScriptPal != null) && (myScriptPal instanceof Window)){
         myScriptPal.center();
         myScriptPal.show();
+
     }
 }
 
@@ -174,6 +173,8 @@ myScript(this);
 
         function textLayersVinden() { // ___________________________________________________________________________
             mijnConsoleWaarde.text ="Tekstlayer vinden";
+            progress.value = 7;
+
 
             //alert(AantalLayers);
             for (w=1 ; w <= AantalLayers ; w++){ // antalLayers is 18
@@ -412,7 +413,6 @@ function SP_textSize1(){
 
     //alert(mijnComp.name);
     mijnConsoleWaarde.text = "verwerken van: " + mijnComp.name;
-    progressWaarde = 40;
 
 
 
@@ -592,7 +592,8 @@ function SP_textSize3(){
 
     //alert(mijnComp.name);
     mijnConsoleWaarde.text = "verwerken van: " + mijnComp.name;
-    progressWaarde = 50;
+    progress.value = 50;
+
 
 
 
@@ -771,7 +772,8 @@ function SP_textSize4(){
 
     //alert(mijnComp.name);
     mijnConsoleWaarde.text = "verwerken van: " + mijnComp.name;
-    progressWaarde = 65;
+    progress.value = 65;
+
 
 
 
@@ -942,8 +944,7 @@ function DC_OffsetComplete() {
 
     app.project.timeDisplayType=TimeDisplayType.TIMECODE; // Zet de tijdcode style eerst om naar TIMECODE i.p.v. frames
 
-    //progress.value = 85;
-    progressWaarde = 85;
+    progress.value = 85;
 
     mijnConsoleWaarde.text = "Offset van de control layer toepassen";
 
@@ -1020,8 +1021,8 @@ function DC_OffsetComplete() {
 
             }
         }
-        //progress.value = 90;
-        progressWaarde = 90;
+        progress.value = 90;
+
 
         mijnConsoleWaarde.text = "Offset van de text layers toepassen";
 
@@ -1071,8 +1072,7 @@ function DC_OffsetComplete() {
         }
 
 
-        //progress.value = 100;
-        progressWaarde = 100;
+        progress.value = 100;
 
         //SP_textSize1();
         mijnConsoleWaarde.text = "tweede comp textsize uitvoeren";
